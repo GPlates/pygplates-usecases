@@ -6,9 +6,8 @@ Cao, W., Williams, S., Flament, N., Zahirovic, S., Scotese, C., and Müller, R. 
 
 ## Code folder
 
-This folder contains a number of Jupyter notebooks with codes and an Output folder. These code are written in Python 2.7. The Output folder includes the results generated from the codes, such as figures, maps and shapefiles.
+This folder contains a number of Jupyter notebooks with codes and an Output folder. These code were written in Python 2.7 firstly, and now in this versiob they have are modified using Python 3.7. The Output folder includes the results generated from the codes, such as figures, maps and shapefiles.
 
 ## Data folder
 
 This folder contains all the input data and models.
-
