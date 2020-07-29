@@ -1,6 +1,7 @@
 # pygplates-usecases-Updated
 "pygplates-usecases" repository, including the notebooks and codes, URL, python version (improved from 2.7 to 3.7), is modified for both Windows and Linux users.
 
+The old python 2 version is kept in branch 20200729-backup.
 
 In case of the notebook "Subduction_history_and_slab_flux", there are several points that could be helpfull:
 ### 1. The codes are based on Python 3.7
