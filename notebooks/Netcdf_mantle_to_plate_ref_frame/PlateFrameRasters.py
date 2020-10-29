@@ -76,7 +76,7 @@ def GeneratePlateReferenceFrameXYZ(rotation_model,reconstruction_time,multipoint
             # Reconstruct the multipoint features into a list of pygplates.ReconstructedFeatureGeometry's.
             reconstructed_feature_geometries = []
             pygplates.reconstruct(multipoint_feature_collection, rotation_model, reconstructed_feature_geometries, reconstruction_time)
-            print 'num reconstructed multipoint geometries: %d' % len(reconstructed_feature_geometries)
+            print('num reconstructed multipoint geometries: %d' % len(reconstructed_feature_geometries))
             for reconstructed_feature_geometry in reconstructed_feature_geometries:
 
                 reconstructed_lon_points, reconstructed_lat_points, present_day_lat_lon_points = GetReconstructedMultipoint(reconstructed_feature_geometry)
@@ -100,7 +100,7 @@ def GeneratePlateReferenceFramesXYZ(rotation_model,raster_times,raster_filenames
     
         reconstruction_time = raster_times[reconstruction_time_index]
         InputGridFile = raster_filenames[reconstruction_time_index]
-        print 'time: %d Ma' % reconstruction_time
+        print('time: %d Ma' % reconstruction_time)
         #InputGridFile = GridDir+'gld9NLt-%d.topo_0.5d_corr.0.grd' % reconstruction_time 
         GeneratePlateReferenceFrameXYZ(rotation_model,reconstruction_time,multipoint_feature_collection,InputGridFile)
 
@@ -147,7 +147,7 @@ def GenerateReconstructedDeltaXYZ(rotation_model,reconstruction_time1,reconstruc
             pygplates.reconstruct(multipoint_feature_collection, rotation_model, reconstructed_feature_geometries1, reconstruction_time1)
             pygplates.reconstruct(multipoint_feature_collection, rotation_model, reconstructed_feature_geometries2, reconstruction_time2)
             pygplates.reconstruct(multipoint_feature_collection, rotation_model, reconstructed_feature_geometries_mid, reconstruction_time_mid)
-            print 'num reconstructed multipoint geometries: %d' % len(reconstructed_feature_geometries1)
+            print('num reconstructed multipoint geometries: %d' % len(reconstructed_feature_geometries1))
             for reconstructed_feature_geometry_index in range(0, len(reconstructed_feature_geometries1)):
 
                 reconstructed_feature_geometry1 = reconstructed_feature_geometries1[reconstructed_feature_geometry_index]
@@ -193,7 +193,7 @@ def GenerateReconstructedDeltasXYZ(rotation_model,raster_times,raster_filenames,
         reconstruction_time1 = raster_times[reconstruction_time_index]
         reconstruction_time2 = raster_times[reconstruction_time_index+1]
         reconstruction_time_mid = 0.5 * (reconstruction_time1 + reconstruction_time2)
-        print 'time: %f Ma' % reconstruction_time_mid
+        print('time: %f Ma' % reconstruction_time_mid)
         
         # Exclude any multipoint features that do not exist at either reconstruction time.
         filtered_multipoint_feature_collection = pygplates.FeatureCollection()
@@ -213,7 +213,7 @@ def GenerateReconstructedDeltasXYZ(rotation_model,raster_times,raster_filenames,
             have_filtered_multipoints = True
 
         if not have_filtered_multipoints:
-            print 'Skipping mid-time %0.2f since multipoint feature does not exist' % reconstruction_time_mid
+            print('Skipping mid-time %0.2f since multipoint feature does not exist' % reconstruction_time_mid)
             continue
 
         #InputGridFile1 = GridDir+'gld9NLt-%d.topo_0.5d_corr.0.grd' % reconstruction_time1
@@ -325,7 +325,7 @@ if __name__ == "__main__":
     options.raster_times, options.raster_filenames = ParseRasterListFile(options.raster_file_list)
     #print options.raster_filenames
 
-    print 'Reading rotation model...'
+    print('Reading rotation model...')
     rotation_model = pygplates.RotationModel(input_rotation_filename)
 
     # Read/parse the multipoint feature collection.
@@ -333,7 +333,7 @@ if __name__ == "__main__":
     # NOTE: Definitely read the multipoint feature collection once (instead of per loop iteration)
     # because it takes a long time to load/parse.
     file_registry = pygplates.FeatureCollectionFileFormatRegistry()
-    print 'Reading multipoint data...'
+    print('Reading multipoint data...')
     multipoint_feature_collection = file_registry.read(input_multipoint_filename)
 
     if options.do_delta:
