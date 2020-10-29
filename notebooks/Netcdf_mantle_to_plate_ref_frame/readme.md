@@ -10,5 +10,9 @@
 
 #### Step 4: Open mantle_to_plate_ref_frame.ipynb and run the code cell
 
-See the comments insde mantle_to_plate_ref_frame.ipynb to customize the code for your grids.
+See the comments inside mantle_to_plate_ref_frame.ipynb to customize the code for your grids.
+
+Alternatively, you can also build your own local docker container. The Dockerfile can be found in this folder. 
+
+`docker build -t my-pygplates-dt .`
 
